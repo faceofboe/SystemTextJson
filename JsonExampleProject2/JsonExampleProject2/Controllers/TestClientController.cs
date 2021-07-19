@@ -10,6 +10,7 @@ namespace JsonExampleProject2.Controllers
 	public class TestClientController : ControllerBase
 	{
 		private static IHttpClientFactory _httpClient;
+
 		public TestClientController(IHttpClientFactory httpClient)
 		{
 			_httpClient = httpClient;

@@ -8,7 +8,6 @@ namespace JsonExampleProject2.Controllers
 	[ApiController]
 	public class TestController : ControllerBase
 	{
-
 		[HttpGet]
 		public string Get()
 		{

@@ -137,14 +137,13 @@ namespace JsonExampleProject1
 				Pets = pets
 			};
 
-			var person2 = new Person
-			{
-				Name = "John",
-				Age = null,
-				StateOfOrigin = "England",
-				Pets = pets
-
-			};
+			//var person2 = new Person
+			//{
+			//	Name = "John",
+			//	Age = null,
+			//	StateOfOrigin = "England",
+			//	Pets = pets
+			//};
 
 			var options = new JsonSerializerOptions
 			{
@@ -152,7 +151,8 @@ namespace JsonExampleProject1
 				IgnoreNullValues = true
 			};
 
-			Console.WriteLine(JsonSerializer.Serialize(person2, options));
+			Console.WriteLine(JsonSerializer.Serialize(person, options));
+			//Console.WriteLine(JsonSerializer.Serialize(person2, options));
 		}
 
 		private static void DeserizalizeWithOptions()
