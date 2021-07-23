@@ -17,10 +17,12 @@ namespace JsonExampleProject2.Controllers
 		}
 
 		[HttpGet]
-		public async Task<Person> GetJson()
+		public async Task<IActionResult> GetJson()
 		{
 			var client = _httpClient.CreateClient("TestClientController");
-			return await client.GetFromJsonAsync<Person>(client.BaseAddress);
+			var person = await client.GetFromJsonAsync<Person>("Test");
+
+			return Ok(person);
 		}
 	}
 }

@@ -29,7 +29,7 @@ namespace JsonExampleProject2
 			});
 
 			services.AddHttpClient("TestClientController",
-				c => c.BaseAddress = new Uri("https://localhost:5001/api/Test"));
+				c => c.BaseAddress = new Uri("https://localhost:5001/api/"));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

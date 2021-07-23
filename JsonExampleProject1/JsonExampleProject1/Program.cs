@@ -6,29 +6,10 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace JsonExampleProject1
-{
-	public class Person
-	{
-		public string Name { get; set; }
-
-		public int? Age { get; set; }
-
-		public string StateOfOrigin { get; set; }
-
-		public List<Pet> Pets { get; set; }
-	}
-
-	public class Pet
-	{
-		public string Type { get; set; }
-
-		public string Name { get; set; }
-
-		public double Age { get; set; }
-	}
+{ 
 	class Program
 	{
-		static void Main()
+		private static void Main()
 		{
 			SerializeExample();
 			SerializeToFile();
@@ -74,8 +55,9 @@ namespace JsonExampleProject1
 				Pets = pets
 			};
 
-			string fileName = "Person.json";
-			using FileStream stream = File.Create(fileName);
+			var fileName = "Person.json";
+
+			var stream = File.Create(fileName);
 			await JsonSerializer.SerializeAsync(stream, person);
 			await stream.DisposeAsync();
 
