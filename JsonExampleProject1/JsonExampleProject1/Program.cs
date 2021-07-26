@@ -4,15 +4,16 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
 namespace JsonExampleProject1
 { 
 	class Program
 	{
-		private static void Main()
+		private static async Task Main()
 		{
 			SerializeExample();
-			SerializeToFile();
+			await SerializeToFile();
 			DeserizalizeExample();
 			DeserializeWithJsonDocument();
 			SerializeWithOptions();
@@ -39,7 +40,7 @@ namespace JsonExampleProject1
 			Console.WriteLine(JsonSerializer.Serialize<Person>(person));
 		}
 
-		private static async void SerializeToFile()
+		private static async Task SerializeToFile()
 		{
 			var pets = new List<Pet>
 			{
@@ -57,7 +58,7 @@ namespace JsonExampleProject1
 
 			var fileName = "Person.json";
 
-			var stream = File.Create(fileName);
+			using var stream = File.Create(fileName);
 			await JsonSerializer.SerializeAsync(stream, person);
 			await stream.DisposeAsync();
 
